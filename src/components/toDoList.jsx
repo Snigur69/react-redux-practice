@@ -20,19 +20,19 @@ class List extends React.Component {
         
     }
     handleSubmit() {
-        let newListAction = this.state.newAction;
         let newList = this.state.list;
         newList.push(this.state.newAction);
         this.setState({
             list: newList,
             newAction: ''
         })
-        console.log(this.state)
+    this.myList = this.state.list.map(el => <li>{el}</li>)
     }
     render() {
         return (
             <div>
                 <AddAction onChange={this.handleChange} onSubmit={this.handleSubmit} state={this.state} />
+                <ul>{this.myList}</ul>
             </div>
         )
     }
