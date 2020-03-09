@@ -3,10 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import List from './components/toDoList';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <List />
+      <List store={props.store} />
     </div>
   );
 }

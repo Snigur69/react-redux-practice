@@ -6,7 +6,6 @@ class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {     
-            list: [],
             newAction: ''
         }
         this.handleChange = this.handleChange.bind(this);
@@ -20,13 +19,13 @@ class List extends React.Component {
         
     }
     handleSubmit() {
-        let newList = this.state.list;
-        newList.push(this.state.newAction);
+        // let newList = this.state.list;
+        // newList.push(this.state.newAction);
+        this.props.store.dispatch({type: 'ADD_ACTION', custom_action: this.state.newAction});
         this.setState({
-            list: newList,
             newAction: ''
         })
-    this.myList = this.state.list.map(el => <li>{el}</li>)
+    this.myList = this.props.store.getState().map((el, index) => <li key={index}>{el}</li>);
     }
     render() {
         return (

@@ -8,7 +8,7 @@ const AddAction = (props) => {
         <input
             placeholder="action"
             onChange={props.onChange}
-            value={props.state.newValue}
+            value={props.state.newAction}
         />
         <button onClick={props.onSubmit}>Send Action</button>
     </div>
