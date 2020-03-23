@@ -5,6 +5,15 @@ const initialState = [
 ]
 
 export const skills = (state = initialState, action) => {
-   
+    if(action.type === 'ADD_SKILL') {
+        return [
+            ...state,
+            action.custom_skill
+        ];
+    } else if(action.type === 'DELETE_SKILL') {
+        let tmp_skills = state;
+        tmp_skills.splice(tmp_skills.length - 1, 1);
+        return tmp_skills;
+    }
     return state;
 }
