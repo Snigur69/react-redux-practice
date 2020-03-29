@@ -8,9 +8,9 @@ import {store} from './store/store';
 
 
 ReactDOM.render(
-    // <Provider>
-        <App store={store} />
-    // </Provider>
+    <Provider store={store}>
+        <App />
+    </Provider>
     ,
     document.getElementById('root'));
 
@@ -21,5 +21,9 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 store.subscribe(() => {
-    ReactDOM.render(<App store={store} />, document.getElementById('root'));
+    ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('root'));
 });

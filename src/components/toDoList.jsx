@@ -13,7 +13,7 @@ class List extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
     }
     componentWillMount() {
-        this.myList = this.props.store.getState().custom_actions.map((el, index) => <li key={index}>{el}</li>);
+        this.myList = this.props.store.custom_actions.map((el, index) => <li key={index}>{el}</li>);
     }
     handleChange(e) {
         this.setState({
@@ -21,15 +21,18 @@ class List extends React.Component {
         })
     }
     handleDelete() {
-        this.props.store.dispatch({type: 'DELETE_ACTION'});
-        this.myList = this.props.store.getState().custom_actions.map((el, index) => <li key={index}>{el}</li>);
+        // this.props.store.dispatch({type: 'DELETE_ACTION'});
+        this.props.deleteLastItem();
+        this.myList = this.props.store.custom_actions.map((el, index) => <li key={index}>{el}</li>);
     }
     handleSubmit() {
-        this.props.store.dispatch({type: 'ADD_ACTION', custom_action: this.state.newAction});
+        // this.props.store.dispatch({type: 'ADD_ACTION', custom_action: this.state.newAction});
+        this.props.addToList(this.state.newAction);
         this.setState({
             newAction: ''
         })   
-    this.myList = this.props.store.getState().custom_actions.map((el, index) => <li key={index}>{el}</li>);
+        
+    this.myList = this.props.store.custom_actions.map((el, index) => <li key={index}>{el}</li>);
     }
     
     render() {

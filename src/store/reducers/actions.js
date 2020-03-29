@@ -9,7 +9,7 @@ export const custom_actions = (state = initialState, action) => {
     if(action.type === 'ADD_ACTION') {
         return [
             ...state,
-            action.custom_action
+            action.payload
         ];
     } else if(action.type === 'DELETE_ACTION') {
         let tmp_actions = state;

@@ -8,7 +8,7 @@ export const skills = (state = initialState, action) => {
     if(action.type === 'ADD_SKILL') {
         return [
             ...state,
-            action.custom_skill
+            action.payload
         ];
     } else if(action.type === 'DELETE_SKILL') {
         let tmp_skills = state;
