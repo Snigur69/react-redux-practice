@@ -10,3 +10,13 @@ export function deleteLastItem () {
         type: 'DELETE_ACTION'
     }
 };
+
+export function changeActionById(newID, newAction) {
+    return {
+        type: 'CHANGE_ACTION_BY_ID',
+        payload: {
+            id: newID,
+            action: newAction
+        }
+    }
+}

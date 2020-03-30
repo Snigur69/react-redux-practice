@@ -1,7 +1,10 @@
 const initialState = [
     'Custom action 1',
     'Custom action 2', 
-    'Custom Action 3'
+    'Custom Action 3',
+    'Custom action 4',
+    'Custom action 5', 
+    'Custom Action 6'
 ];
 
 
@@ -15,6 +18,9 @@ export const custom_actions = (state = initialState, action) => {
         let tmp_actions = state;
         tmp_actions.splice(tmp_actions.length - 1, 1);
         return tmp_actions;
+    } else if (action.type === 'CHANGE_ACTION_BY_ID') {
+        state[action.payload.id] = action.payload.action;
+        return state;
     }
     return state;
 }
