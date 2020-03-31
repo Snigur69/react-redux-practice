@@ -14,14 +14,15 @@ ReactDOM.render(
         <App />
     </Provider>
     ,
-    document.getElementById('root'));
+    document.getElementById('root')
+);
 
 
 serviceWorker.unregister();
-// store.subscribe(() => {
-//     ReactDOM.render(
-//     <Provider store={store}>
-//         <App />
-//     </Provider>
-//     , document.getElementById('root'));
-// });
+store.subscribe(() => {
+    ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    , document.getElementById('root'));
+});

@@ -39,14 +39,20 @@ class List extends React.Component {
     }
     handleSUbmitChangeActionById() {
         this.props.changeActionById(this.state.newId, this.state.newActionById);
+        this.setState({
+           
+        }) 
     }
     handleDeleteActionById() {
-
+        this.props.deleteActionById(this.state.newId);
+        this.setState({});  
     }
     handleDelete() {
         // this.props.store.dispatch({type: 'DELETE_ACTION'});
         this.props.deleteLastItem();
-        this.myList = this.props.store.custom_actions.map((el, index) => <li key={index}>{el}</li>);
+        this.setState({
+           
+        })  
     }
 
     handleSubmit() {
@@ -54,9 +60,8 @@ class List extends React.Component {
         this.props.addToList(this.state.newAction);
         this.setState({
             newAction: ''
-        })   
-        
-    this.myList = this.props.store.custom_actions.map((el, index) => <li key={index}>{el}</li>);
+        })  
+        this.myList = this.props.store.custom_actions.map((el, index) => <li key={index}>{el}</li>);
     }
     
     render() {
@@ -66,7 +71,7 @@ class List extends React.Component {
                 <button onClick={this.handleDelete}>Удалить последнее действие</button>
                 <br/>
                 <ChangeAction valueId={this.state.newId} valueAction={this.state.newActionById} onIdChange={this.handleChangeId} onActionChange={this.handleChangeActionById} onActionSubmit={this.handleSUbmitChangeActionById} onActionDelete={this.handleDeleteActionById} />
-                <ul>{this.myList}</ul>
+                <ul>{this.props.store.custom_actions.map((el, index) => <li key={index}>{el}</li>)}</ul>
             </div>
         )
     }

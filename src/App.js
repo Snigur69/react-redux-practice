@@ -20,9 +20,10 @@ function App(props) {
   const {addSkill} = props.skillsActions;
   const {deleteLastSkill} = props.skillsActions;
   const {changeActionById} = props.listActions;
+  const {deleteActionById} = props.listActions;
   return (
     <div className="App">
-      <List store={props.store} addToList={addToList} deleteLastItem={deleteLastItem} changeActionById={changeActionById}  />
+      <List store={props.store} deleteActionById={deleteActionById} addToList={addToList} deleteLastItem={deleteLastItem} changeActionById={changeActionById}  />
       <hr />
       <SkillsList store={props.store} addSkill={addSkill} deleteLastSkill={deleteLastSkill} />
     </div>

@@ -20,3 +20,12 @@ export function changeActionById(newID, newAction) {
         }
     }
 }
+
+export function deleteActionById(newID) {
+    return {
+        type: 'DELETE_ACTION_BY_ID',
+        payload: {
+            id: newID
+        }
+    }
+}
