@@ -39,9 +39,9 @@ class List extends React.Component {
     }
     handleSUbmitChangeActionById() {
         this.props.changeActionById(this.state.newId, this.state.newActionById);
-        this.setState({
+        // this.setState({
            
-        }) 
+        // }) 
     }
     handleDeleteActionById() {
         this.props.deleteActionById(this.state.newId);
@@ -50,9 +50,6 @@ class List extends React.Component {
     handleDelete() {
         // this.props.store.dispatch({type: 'DELETE_ACTION'});
         this.props.deleteLastItem();
-        this.setState({
-           
-        })  
     }
 
     handleSubmit() {

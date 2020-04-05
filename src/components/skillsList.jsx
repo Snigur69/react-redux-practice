@@ -25,11 +25,11 @@ class SkillsList extends React.Component {
     }
     handleDeleteSkillById() {
         this.props.deleteSkillById(this.state.newId);
-        this.setState({});
+        // this.setState({});
     }
     handleSubmitChangeSkill() {
         this.props.changeSkill(this.state.newId, this.state.newSkill);
-        this.setState({});
+        // this.setState({});
     }
     handleChangeId(e) {
         this.setState({
@@ -56,7 +56,7 @@ class SkillsList extends React.Component {
     }
     handleDelete() {
         this.props.deleteLastSkill();
-        this.setState({});
+        // this.setState({});
         // this.props.store.dispatch({type: 'DELETE_SKILL'});
         this.List = this.props.store.skills.map((el,index)=>(<li key={index}>{el}</li>));
     }
